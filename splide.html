@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Splide Example</title>
+
+  <!-- Hier importeren we het script waar Splide op runt, en de bijbehorende css 
+    file die zorgt voor de styling. -->
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.1/dist/js/splide.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.1/dist/css/splide.min.css">
+
+  <!-- Dit is een Bootstrap import, voor makkelijke margin en padding styling -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+<body>
+  <!-- De Splide is capsulated in een div zodat deze een margin en padding krijgt
+    met behulp van Bootstrap classes -->
+  <div class="m-5 p-5">
+    <!-- Hier begint de standaard HTML structure voor Splide 
+      Lines 25 tot 29 zijn standaard, en tussen regels 29 en 45 kunnen zo veel
+      li elements worden geplaatst als dat je aan items in de Splide wilt. 
+      In het voorbeeld zijn dit 5 foto's. -->
+    <section class="splide" aria-labelledby="carousel-heading">
+      <h2 id="carousel-heading">Splide Basic HTML Example</h2>
+
+      <div class="splide__track">
+        <ul class="splide__list">
+          <li class="splide__slide">
+            <img src="images/photo1.jpg" alt="Image">
+          </li>
+          <li class="splide__slide">
+            <img src="images/photo2.jpg" alt="Image">
+          </li>
+          <li class="splide__slide">
+            <img src="images/photo3.jpg" alt="Image">
+          </li>
+          <li class="splide__slide">
+            <img src="images/photo4.jpg" alt="Image">
+          </li>
+          <li class="splide__slide">
+            <img src="images/photo5.jpg" alt="Image">
+          </li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <!-- Deze css rule zorgt er voor dat images die je toevoegt even groot worden, 
+    zodat je geen lelijke verspringingen krijgt in de foto's. -->
+  <style>
+    .splide__slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+
+  <!-- Dit stukje JS zorgt ervoor dat je een Splide object maakt en die activeert. 
+    Dit stukje werkt alleen als je 1 Splide per HTML page hebt.
+    Wil je er meer, moet je ze apart inladen met hun ID. -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var splide = new Splide('.splide', {
+        heightRatio: 0.5,
+        type: 'loop',
+        autoplay: true,
+        width: '50vw',
+        height: '50vh'
+      });
+      splide.mount();
+    });
+  </script>
+
+</body>
+</html>
